@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>com.logtosql</id>
+    <name>Log To SQL</name>
+    <vendor email="support@example.com" url="https://github.com/example/log-to-sql">LogToSql</vendor>
+
+    <description><![CDATA[
+        将 MyBatis、Hibernate、Spring JDBC 等 ORM 日志合并为可直接执行的 SQL。<br><br>
+        <b>用法：</b><br>
+        1. <b>自动模式</b>：在 IDEA 中 Run/Debug 运行项目，控制台出现 MyBatis Parameters 后自动打印红色可执行 SQL<br>
+        2. 选中日志 → 右键 → Log To SQL → Convert Selection<br>
+        3. Tools → Log To SQL → Open Converter，粘贴日志转换
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <consoleFilterProvider implementation="com.logtosql.console.MyBatisConsoleFilterProvider"/>
+        <executionListener implementation="com.logtosql.console.MyBatisConsoleExecutionListener"/>
+        <projectService serviceImplementation="com.logtosql.console.MyBatisLogLineHandler"/>
+        <toolWindow id="Log To SQL"
+                    anchor="bottom"
+                    factoryClass="com.logtosql.ui.LogToSqlToolWindowFactory"
+                    icon="/icons/sql.svg"/>
+    </extensions>
+
+    <projectListeners>
+        <listener class="com.logtosql.console.MyXDebuggerManagerListener"
+                  topic="com.intellij.xdebugger.XDebuggerManagerListener"/>
+    </projectListeners>
+
+    <actions>
+        <group id="LogToSql.Group" text="Log To SQL" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <action id="LogToSql.ConvertSelection"
+                    class="com.logtosql.action.ConvertSelectionAction"
+                    text="Convert Selection to SQL"
+                    description="Merge selected log text into executable SQL"/>
+        </group>
+
+        <action id="LogToSql.OpenToolWindow"
+                class="com.logtosql.action.OpenToolWindowAction"
+                text="Open Converter"
+                description="Open Log To SQL tool window">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
