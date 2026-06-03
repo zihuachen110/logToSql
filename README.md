@@ -199,7 +199,21 @@ src/test/kotlin/                  # SqlLogMerger 单元测试
 ## License
 
 MIT
+## 📱 联系 & 赞赏支持
+> 如果项目帮到了你，欢迎关注公众号、随手赞赏一杯咖啡，助力持续迭代优化
+### 1. 公众号关注
+<div align="center">
+<img width="300" src="https://raw.githubusercontent.com/zihuachen110/img/refs/heads/main/%E5%85%AC%E4%BC%97%E5%8F%B7.jpg"/>
+<br>
+<b>扫码关注公众号，获取更新推送、技术干货</b>
+</div>
 
+### 2. 作者赞赏
+<div align="center">
+<img width="360" src="https://raw.githubusercontent.com/zihuachen110/img/refs/heads/main/%E8%B5%9E%E8%B5%8F%E7%A0%81.jpg"/>
+<br>
+<b>给陈子华☀️赞赏 | 您的鼓励是更新最大动力</b>
+</div>
 ## Star History
 
 <a href="https://www.star-history.com/?repos=zihuachen110%2FlogToSql&type=date&legend=top-left">
